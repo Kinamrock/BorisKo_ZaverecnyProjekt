@@ -7,14 +7,14 @@
 
 <div class="container-lg justify-content-center">
     <p>
-        <a class="btn btn-success" asp-action="Create">Nové poistenie</a>
+        <a class="btn btn-success disabled" asp-action="Create">Nové poistenie</a>
     </p>
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        Klient
+                        @(StringCommon.sc017_Client)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.InsuranceType)
@@ -26,11 +26,9 @@
                         @Html.DisplayNameFor(model => model.Subject)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.ValidFrom)
-                    </th>
-                    <th>
                         @Html.DisplayNameFor(model => model.ValidTo)
                     </th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -39,6 +37,7 @@
                 <tr>
                     <td>
                         <!-- item.GetClientName(item.id)-->
+                        @Html.DisplayFor(modelItem => item.UserId)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.InsuranceType)
@@ -50,10 +49,10 @@
                         @Html.DisplayFor(modelItem => item.Subject)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ValidFrom)
+                        @Html.DisplayFor(modelItem => item.ValidTo)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ValidTo)
+                        @(item.GetValidState())
                     </td>
                     <td>
                         <div class="btn-group" role="group">

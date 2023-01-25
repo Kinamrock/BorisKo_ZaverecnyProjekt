@@ -8,43 +8,50 @@
 
 <div class="container-lg justify-content-center mx-sm-auto">
     <div>
-        <h4>@(Model.ToString() + " (" + Model.GetUserAge() + ")")</h4>
+        <h4>@(Model.ToString() + " (" + Model.GetUserAge() + "r)")</h4>
         <hr />
         <dl class="row">
-            <dt class = "col-sm-2">
+            <dt class = "col-sm-4">
                 @Html.DisplayNameFor(model => model.Email)
             </dt>
-            <dd class = "col-sm-10">
+            <dd class = "col-sm-8">
                 @Html.DisplayFor(model => model.Email)
             </dd>
-            <dt class = "col-sm-2">
+            <dt class = "col-sm-4">
                 @Html.DisplayNameFor(model => model.PhoneNumber)
             </dt>
-            <dd class = "col-sm-10">
+            <dd class = "col-sm-8">
                 @Html.DisplayFor(model => model.PhoneNumber)
             </dd>
-            <dt class = "col-sm-2">
+            <dt class = "col-sm-4">
                 @Html.DisplayNameFor(model => model.BirthDate)
             </dt>
-            <dd class = "col-sm-10">
+            <dd class = "col-sm-8">
                 @Html.DisplayFor(model => model.BirthDate)
             </dd>
-            <dt class = "col-sm-2">
+            <dt class="col-sm-4">
+                @Html.DisplayNameFor(model => model.UserGender)
+            </dt>
+            <dd class="col-sm-8">
+                @(Model.GetUserGender())
+            </dd>
+            <hr/>
+            <dt class = "col-sm-4">
                 @Html.DisplayNameFor(model => model.UserAdress)
             </dt>
-            <dd class = "col-sm-10">
+            <dd class = "col-sm-8">
                 @Html.DisplayFor(model => model.UserAdress)
             </dd>
-            <dt class = "col-sm-2">
+            <dt class = "col-sm-4">
                 @Html.DisplayNameFor(model => model.UserCity)
             </dt>
-            <dd class = "col-sm-10">
+            <dd class = "col-sm-8">
                 @Html.DisplayFor(model => model.UserCity)
             </dd>
-            <dt class="col-sm-2">
+            <dt class="col-sm-4">
                 @Html.DisplayNameFor(model => model.UserZipCode)
             </dt>
-            <dd class="col-sm-10">
+            <dd class="col-sm-8">
                 @Html.DisplayFor(model => model.UserZipCode)
             </dd>
         </dl>
@@ -64,17 +71,19 @@
                         @InsuranceModel.str105_Insurance_DisplayValidTo
                     </th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                @if (ViewBag.UserInsuranceList.Count > 0)
+                @if (Model.UserInsurances.Count > 0)
                 {
-                    @foreach (var item in ViewBag.UserInsuranceList)
+                    @foreach (var item in Model.UserInsurances)
                     {
                         <tr style="vertical-align:middle">
                             <td>@(item.ToString())</td>
                             <td>@(item.Amount)</td>
                             <td>@(item.ValidTo.ToShortDateString())</td>
+                            <td>@(item.GetValidState())</td>
                             <td>
                                 <div class="btn-group" role="group">
                                     <a class="btn my-btn-warning" asp-controller="InsuranceModels" asp-action="Details" asp-route-id="@item.Id">@StringCommon.sc004_Details</a>
@@ -88,6 +97,7 @@
                 else
                 {
                     <tr>
+                        <td>-</td>
                         <td>-</td>
                         <td>-</td>
                         <td>-</td>

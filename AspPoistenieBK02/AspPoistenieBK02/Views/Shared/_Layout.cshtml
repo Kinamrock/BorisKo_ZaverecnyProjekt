@@ -20,10 +20,10 @@
 <body>
     <header class="navbar navbar-expand-md navbar-dark bg-dark">
         <nav class="container-fluid">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+            <a class="navbar-brand flex-column justify-content-between" asp-controller="Home" asp-action="Index">
                 <!-- obrazok je zatial len placeholder-->
-                <img src="https://www.itnetwork.cz/images/5/css/bootstrap/twitter.png" class="d-inline-block align-content-center rounded-circle" width="64" height="64" alt="logo firmy" />
-                Poistovna as
+                <img src="~/pics/Imperial_small.png" class="d-inline-block align-content-center rounded-circle bg-white" width="64" height="64" alt="logo firmy" />
+                Prvá Imperiálna       
             </a>
             <!-- toto je collapse pre velmi uzky styl obrazovky-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacnej-listy">
@@ -50,9 +50,12 @@
             <text>class="domu-article"</text>
         }> -->
         <div>
-            <header class="text-center">
-                <h1>@ViewData["Title"]</h1>
+            
+            <header>
+                <!--<h1>@ViewData["Title"]</h1>-->
+                <h1></h1>
             </header>
+            
 
             @RenderBody()
 
@@ -62,11 +65,13 @@
         </div>
     </article>
 
-    <footer style="display: flex; justify-content:center">
-        Vytvoril &copy;BorisKo @DateTime.Now.Year
-        <!--
-        <a href="https://itnetwork.cz">itnetwork.cz</a>
-        -->
+    <footer>
+        <div class="row bg-dark text-white fixed-bottom">
+            <small class="text-center m-3">May the force be with you &copy;BorisKo @DateTime.Now.Year</small>
+            <!--
+            <a href="https://itnetwork.cz">itnetwork.cz</a>
+            -->
+        </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

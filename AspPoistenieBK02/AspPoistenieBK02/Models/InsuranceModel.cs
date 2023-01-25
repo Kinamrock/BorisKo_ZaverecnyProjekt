@@ -30,12 +30,16 @@ namespace AspPoistenieBK02.Models
 
         private const string str05_errInsurance_AmountIsTooLow = "Zadaj hodnotu vyššiu ako 0,- €";
 
+
+
         public  const string str101_Insurance_DisplayInsuranceType = "Poistenie";
         public  const string str102_Insurance_DisplayAmmount       = "Čiastka v €";
         private const string str103_Insurance_DisplaySubject       = "Predmet/Osoba poistenia";
         private const string str104_Insurance_DisplayValidFrom     = "Platnosť od";
         public  const string str105_Insurance_DisplayValidTo       = "Platnosť do";
         private const string str106_Insurance_DisplayPayment       = "Mesačná splátka";
+        private const string str107_Insurance_ValidInsurance       = "Platné";
+        private const string str108_Insurance_UnvalidInsurance     = "Neplatné";
 
         #endregion
 
@@ -99,22 +103,32 @@ namespace AspPoistenieBK02.Models
             string returnString = "";
             switch (InsuranceType)
             {
-                case EInsuranceType.PersonalInsurance: returnString = str01e_InsuranceType_PersonalInsurance; break;
-                case EInsuranceType.LifeInsurance: returnString = str02e_InsuranceType_LifeInsurance; break;
-                case EInsuranceType.TravelInsurance: returnString = str03e_InsuranceType_TravelInsurance; break;
-                case EInsuranceType.AccidentInsurance: returnString = str04e_InsuranceType_AccidentInsurance; break;
-                case EInsuranceType.HealthInsurance: returnString = str05e_InsuranceType_HealthInsurance; break;
-                case EInsuranceType.PropertyInsurance: returnString = str06e_InsuranceType_PropertyInsurance; break;
-                case EInsuranceType.NaturalDisasterInsurance: returnString = str07e_InsuranceType_NaturalDisasterInsurance; break;
-                case EInsuranceType.TechnicalInsurance: returnString = str08e_InsuranceType_TechnicalInsurance; break;
-                case EInsuranceType.CarInsurance: returnString = str09e_InsuranceType_CarInsurance; break;
-                case EInsuranceType.BusinessInsurance: returnString = str10e_InsuranceType_BusinessInsurance; break;
-                case EInsuranceType.LiabilityInsurance: returnString = str11e_InsuranceTypeLiabilityInsurance; break;
+                case EInsuranceType.PersonalInsurance:              returnString = str01e_InsuranceType_PersonalInsurance;              break;
+                case EInsuranceType.LifeInsurance:                  returnString = str02e_InsuranceType_LifeInsurance;                  break;
+                case EInsuranceType.TravelInsurance:                returnString = str03e_InsuranceType_TravelInsurance;                break;
+                case EInsuranceType.AccidentInsurance:              returnString = str04e_InsuranceType_AccidentInsurance;              break;
+                case EInsuranceType.HealthInsurance:                returnString = str05e_InsuranceType_HealthInsurance;                break;
+                case EInsuranceType.PropertyInsurance:              returnString = str06e_InsuranceType_PropertyInsurance;              break;
+                case EInsuranceType.NaturalDisasterInsurance:       returnString = str07e_InsuranceType_NaturalDisasterInsurance;       break;
+                case EInsuranceType.TechnicalInsurance:             returnString = str08e_InsuranceType_TechnicalInsurance;             break;
+                case EInsuranceType.CarInsurance:                   returnString = str09e_InsuranceType_CarInsurance;                   break;
+                case EInsuranceType.BusinessInsurance:              returnString = str10e_InsuranceType_BusinessInsurance;              break;
+                case EInsuranceType.LiabilityInsurance:             returnString = str11e_InsuranceTypeLiabilityInsurance;              break;
                 case EInsuranceType.ProffesionalLiabilityInsurance: returnString = str12e_InsuranceType_ProffesionalLiabilityInsurance; break;
-                default: returnString = "ERR - wrong EInsuranceType!!!"; break;
+                default: returnString = "[InsuranceModel] ERR - wrong EInsuranceType!!!"; break;
             }
             return returnString;
         }
+
+        public string GetValidState()
+        {
+            if (ValidTo < DateTime.Now)
+                return str108_Insurance_UnvalidInsurance;
+            else
+                return str107_Insurance_ValidInsurance;
+        }
+
+
 
 
 

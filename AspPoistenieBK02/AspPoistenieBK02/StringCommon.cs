@@ -23,9 +23,10 @@ namespace AspPoistenieBK02
         public const string sc011_Register     = "Registrovať";
         public const string sc012_LogIn        = "Prihlásiť";
         public const string sc013_LogOut       = "Odhlásiť";
-        public const string sc014_AdmiAccount  = "ADMIN ÚČET";
+        public const string sc014_AdmiAccount  = "PALPATINE ACCOUNT";
         public const string sc015_NavbarClients    = "Klienti";
         public const string sc016_NavbarInsurances = "Poistenia";
+        public const string sc017_Client = "Klient";
 
 
         #endregion

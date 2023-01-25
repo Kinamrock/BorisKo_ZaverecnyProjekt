@@ -41,8 +41,8 @@ namespace AspPoistenieBK02.Controllers
 
             if(userModel != null)
             {
-#warning toto by sa malo zobrazovat pre uzivatela
-                ViewBag.UserInsuranceList = _context.InsuranceModel.Where(s => s.UserId.Equals(userModel.Id)).ToList();
+                //ViewBag.UserInsuranceList = userModel.GetUserInsurances(_context, userModel.Id);
+                userModel.SetUserInsurances(_context, userModel.Id);
 
                 /*
                 foreach(object o in userInsuranceList)
@@ -64,7 +64,7 @@ namespace AspPoistenieBK02.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email,PhoneNumber,BirthDate,UserAdress,UserCity,UserZipCode")] UserModel userModel)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Email,PhoneNumber,BirthDate,UserAdress,UserCity,UserZipCode,UserGender")] UserModel userModel)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace AspPoistenieBK02.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,PhoneNumber,BirthDate,UserAdress,UserCity,UserZipCode")] UserModel userModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Email,PhoneNumber,BirthDate,UserAdress,UserCity,UserZipCode,UserGender")] UserModel userModel)
         {
             if (id != userModel.Id)
             {
