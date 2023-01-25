@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="BorisKo" />
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <!--
+    <link rel="shortcut icon" href="~/images/ikona.ico" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/lightbox2/css/lightbox.min.css" asp-append-version="true" />
+    -->
+</head>
+
+<body>
+    <header class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="container-fluid">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                <!-- obrazok je zatial len placeholder-->
+                <img src="https://www.itnetwork.cz/images/5/css/bootstrap/twitter.png" class="d-inline-block align-content-center rounded-circle" width="64" height="64" alt="logo firmy" />
+                Poistovna as
+            </a>
+            <!-- toto je collapse pre velmi uzky styl obrazovky-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#obsah-navigacnej-listy">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--navigacka-->
+            <div class="collapse navbar-collapse justify-content-between" id="obsah-navigacnej-listy">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">@StringCommon.sc001_Home</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Insurance">@StringCommon.sc002_Insurance</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">@StringCommon.sc003_Contact</a></li>
+                    <partial name="_LoggedNavbar" />
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    </header>
+
+    <article>
+        <!--
+        <div id="centrovac"
+        @if (Context.Request.RouteValues.Values.Any(p => p is "Home") && Context.Request.RouteValues.Values.Any(p => p is "Index"))
+        {
+            <text>class="domu-article"</text>
+        }> -->
+        <div>
+            <header class="text-center">
+                <h1>@ViewData["Title"]</h1>
+            </header>
+
+            @RenderBody()
+
+            <!--
+            <div class="cistic"></div>
+            -->
+        </div>
+    </article>
+
+    <footer style="display: flex; justify-content:center">
+        Vytvoril &copy;BorisKo @DateTime.Now.Year
+        <!--
+        <a href="https://itnetwork.cz">itnetwork.cz</a>
+        -->
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/lightbox2/js/lightbox.min.js" asp-append-version="true"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            $('.alert').alert()
+        })
+    </script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

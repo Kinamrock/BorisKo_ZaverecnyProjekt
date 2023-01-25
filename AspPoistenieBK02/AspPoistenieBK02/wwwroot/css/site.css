@@ -1,0 +1,41 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.my-btn-warning,
+.my-btn-danger,
+.my-btn-info {
+    color: white;
+    background-color: #6c757d;
+}
+
+
+.my-btn-warning:hover {
+    color: white;
+    background-color: #f0ad4e;
+}
+
+.my-btn-danger:hover {
+    color: white;
+    background-color: #d9534f;
+}
+
+.my-btn-info:hover {
+    color: white;
+    background-color: #0275d8;
+}

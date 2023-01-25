@@ -1,0 +1,35 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if(true) //User is admin, nezabudnut no nastavenie role
+        {
+            <li class="nav-item">
+                <a class="nav-link disabled text-white">@StringCommon.sc014_AdmiAccount</a>
+            </li>
+        }
+        else //common user
+        {
+            <li class="nav-item">
+                <a class="nav-link disabled text-white">@User.Identity?.Name</a>
+            </li>
+        }
+        <li class="nav-item">
+            <form  class="form-inline" asp-area="Identity">
+                <a class="btn my-btn-danger" asp-controller="Account" asp-action="Logout">@StringCommon.sc013_LogOut</a>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-controller="Account" asp-action="Register">@StringCommon.sc011_Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-area="Identity" asp-controller="Account" asp-action="Login">@StringCommon.sc012_LogIn</a>
+        </li>
+    }
+</ul>

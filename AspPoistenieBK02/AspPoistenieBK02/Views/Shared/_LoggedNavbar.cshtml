@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        @if (true) //User is admin, nezabudnut no nastavenie role
+        {
+            <li class="nav-item"><a class="nav-link" asp-controller="UserModels" asp-action="Index">@StringCommon.sc015_NavbarClients</a></li>
+            <li class="nav-item"><a class="nav-link" asp-controller="InsuranceModels" asp-action="Index">@StringCommon.sc016_NavbarInsurances</a></li>
+        }
+        else //common user
+        {
+            //musi zobrazovat len klientov ucet
+            <li class="nav-item"><a class="nav-link" asp-controller="UserModels" asp-action="Index">MojePoistenie</a></li>
+        }
+    }
+</ul>

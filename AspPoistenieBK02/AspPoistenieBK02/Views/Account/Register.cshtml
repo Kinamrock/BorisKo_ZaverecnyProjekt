@@ -1,0 +1,41 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Registrace";
+}
+<section>
+    <form class="container-lg justify-content-center" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-4">
+                <div class="d-flex flex-column gap-2">
+                    <!--<div asp-validation-summary="All" class="text-danger"></div> toto vyhodi hlasky s err, ale skoci layout a nepaci sa mi to :)-->
+                    @if (ViewBag.RegisterError != null)
+                    {
+                        <span class="text-danger">@ViewBag.RegisterError</span>
+                    }
+                    
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span> 
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword"></label>
+                        <input asp-for="ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-success">@StringCommon.sc011_Register</button>
+    </form>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

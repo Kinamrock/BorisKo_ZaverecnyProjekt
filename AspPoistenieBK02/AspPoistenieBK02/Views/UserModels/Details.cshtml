@@ -1,0 +1,104 @@
+﻿@model AspPoistenieBK02.Models.UserModel
+
+
+@{
+    ViewData["Title"] = "Details";
+    TempData["UserIdRequest"] = Model.Id;
+}
+
+<div class="container-lg justify-content-center mx-sm-auto">
+    <div>
+        <h4>@(Model.ToString() + " (" + Model.GetUserAge() + ")")</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.BirthDate)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.UserAdress)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.UserAdress)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.UserCity)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.UserCity)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.UserZipCode)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UserZipCode)
+            </dd>
+        </dl>
+    </div>
+    <div class="table-responsive">
+        <!-- cast pre poistenia-->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @InsuranceModel.str101_Insurance_DisplayInsuranceType
+                    </th>
+                    <th>
+                        @InsuranceModel.str102_Insurance_DisplayAmmount
+                    </th>
+                    <th>
+                        @InsuranceModel.str105_Insurance_DisplayValidTo
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.UserInsuranceList.Count > 0)
+                {
+                    @foreach (var item in ViewBag.UserInsuranceList)
+                    {
+                        <tr style="vertical-align:middle">
+                            <td>@(item.ToString())</td>
+                            <td>@(item.Amount)</td>
+                            <td>@(item.ValidTo.ToShortDateString())</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a class="btn my-btn-warning" asp-controller="InsuranceModels" asp-action="Details" asp-route-id="@item.Id">@StringCommon.sc004_Details</a>
+                                    <a class="btn my-btn-info" asp-controller="InsuranceModels" asp-action="Edit" asp-route-id="@item.Id">@StringCommon.sc005_Edit</a>
+                                    <a class="btn my-btn-danger" asp-controller="InsuranceModels" asp-action="Delete" asp-route-id="@item.Id">@StringCommon.sc006_Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }  
+                }
+                else
+                {
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="btn-group" role="group">
+        <a class="btn btn-success" asp-controller="InsuranceModels" asp-action="Create">@StringCommon.sc009_AddInsurance</a>
+        <a class="btn my-btn-info"   asp-action="Edit" asp-route-id="@Model?.Id">@StringCommon.sc005_Edit</a>
+        <a class="btn btn-secondary" asp-action="Index">@StringCommon.sc007_BackToList</a>
+    </div>
+</div>

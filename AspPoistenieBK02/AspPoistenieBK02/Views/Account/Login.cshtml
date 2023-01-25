@@ -1,0 +1,50 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model LoginViewModel
+@inject SignInManager<IdentityUser> SignInManager
+
+@{
+    ViewData["Title"] = "Prihlasenie";
+}
+
+<section>
+    <form class="container-lg justify-content-center" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-4">
+                <div class="d-flex flex-column gap-2" >
+                    <!--<div asp-validation-summary="All" class="text-danger"></div> aktualne nevyuzivam-->
+                    @if (ViewBag.LoginError != null)
+                    {
+                        <span class="text-danger">@ViewBag.LoginError</span>
+                    }
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label asp-for="RememberMe">
+                                <input asp-for="RememberMe" />
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="btn-group" role="group">
+            <button class="btn btn-success" type="submit">@StringCommon.sc012_LogIn</button>
+            <a class="btn btn-secondary" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">@StringCommon.sc011_Register</a>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

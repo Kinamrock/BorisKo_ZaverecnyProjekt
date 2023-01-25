@@ -1,0 +1,191 @@
+﻿@{
+    ViewData["Title"] = "Poistenie";
+}
+
+<div class="container-lg">
+
+    <div id="harmonika" role="tablist">
+        <!-- 01 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-1">
+                <h5 class="mb-0">
+                    <a class="text-decoration-none" data-toggle="collapse" href="#collapse-1" aria-expanded="true" aria-controls="collapse-1">
+                        @InsuranceModel.str01e_InsuranceType_PersonalInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-1" class="collapse show" role="tabpanel" aria-labelledby="hlavicka-1" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str01e_InsuranceType_PersonalInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 02 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-2">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-2" aria-expanded="false" aria-controls="collapse-2">
+                        @InsuranceModel.str02e_InsuranceType_LifeInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-2" class="collapse" role="tabpanel" aria-labelledby="hlavicka-2" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str02e_InsuranceType_LifeInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 03 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-3">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
+                        @InsuranceModel.str03e_InsuranceType_TravelInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-3" class="collapse" role="tabpanel" aria-labelledby="hlavicka-3" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str03e_InsuranceType_TravelInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 04 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-4">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-4" aria-expanded="false" aria-controls="collapse-4">
+                        @InsuranceModel.str04e_InsuranceType_AccidentInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-4" class="collapse" role="tabpanel" aria-labelledby="hlavicka-4" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str04e_InsuranceType_AccidentInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 05 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-5">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                        @InsuranceModel.str05e_InsuranceType_HealthInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-5" class="collapse" role="tabpanel" aria-labelledby="hlavicka-5" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str05e_InsuranceType_HealthInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 06 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-6">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-6" aria-expanded="false" aria-controls="collapse-6">
+                        @InsuranceModel.str06e_InsuranceType_PropertyInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-6" class="collapse" role="tabpanel" aria-labelledby="hlavicka-6" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str06e_InsuranceType_PropertyInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 07 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-2">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-7" aria-expanded="false" aria-controls="collapse-7">
+                        @InsuranceModel.str07e_InsuranceType_NaturalDisasterInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-7" class="collapse" role="tabpanel" aria-labelledby="hlavicka-7" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str07e_InsuranceType_NaturalDisasterInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 08 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-2">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-8" aria-expanded="false" aria-controls="collapse-8">
+                        @InsuranceModel.str08e_InsuranceType_TechnicalInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-8" class="collapse" role="tabpanel" aria-labelledby="hlavicka-8" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str08e_InsuranceType_TechnicalInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 09 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-2">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-9" aria-expanded="false" aria-controls="collapse-9">
+                        @InsuranceModel.str09e_InsuranceType_CarInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-9" class="collapse" role="tabpanel" aria-labelledby="hlavicka-9" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str09e_InsuranceType_CarInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 10 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-10">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-10" aria-expanded="false" aria-controls="collapse-10">
+                        @InsuranceModel.str10e_InsuranceType_BusinessInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-10" class="collapse" role="tabpanel" aria-labelledby="hlavicka-10" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str10e_InsuranceType_BusinessInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 11 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-11">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-11" aria-expanded="false" aria-controls="collapse-11">
+                        @InsuranceModel.str11e_InsuranceTypeLiabilityInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-11" class="collapse" role="tabpanel" aria-labelledby="hlavicka-11" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str11e_InsuranceTypeLiabilityInsuranceDescription
+                </div>
+            </div>
+        </div>
+        <!-- 12 -->
+        <div class="card">
+            <div class="card-header" role="tab" id="hlavicka-12">
+                <h5 class="mb-0">
+                    <a class="collapsed text-decoration-none" data-toggle="collapse" href="#collapse-12" aria-expanded="false" aria-controls="collapse-12">
+                        @InsuranceModel.str12e_InsuranceType_ProffesionalLiabilityInsurance
+                    </a>
+                </h5>
+            </div>
+            <div id="collapse-12" class="collapse" role="tabpanel" aria-labelledby="hlavicka-12" data-parent="#harmonika">
+                <div class="card-body">
+                    @InsuranceModel.str12e_InsuranceType_ProffesionalLiabilityInsuranceDescription
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

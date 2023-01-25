@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AspPoistenieBK02.props" />
+</Project>
